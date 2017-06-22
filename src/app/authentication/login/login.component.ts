@@ -1,5 +1,6 @@
 import { AuthenticationService } from '../services/authentication.service';
 
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -13,6 +14,7 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
 
   constructor(
+    private router: Router,
     private fb: FormBuilder,
     private authService: AuthenticationService
   ) { }
@@ -27,7 +29,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.authService
       .login(this.form.value)
-      .subscribe(res => console.log(res))
+      .subscribe(res => this.router.navigate(['main']));
   }
 
 }
