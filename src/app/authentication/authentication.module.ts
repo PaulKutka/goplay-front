@@ -19,7 +19,8 @@ import { appRoutes } from './authentication.routing';
     FormsModule,
     MdInputModule,
     MdCardModule,
-    MdButtonModule
+    MdButtonModule,
+    RouterModule.forRoot(appRoutes)
   ],
   exports: [],
   declarations: [

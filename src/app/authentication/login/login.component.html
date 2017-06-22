@@ -2,8 +2,8 @@
   <md-card-header>
     Login
   </md-card-header>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      
     <p>
       <md-input-container>
         <input mdInput placeholder="email@gmail.com" formControlName="email">
@@ -20,6 +20,10 @@
       <button md-raised-button type="submit" [disabled]="form.invalid">Submit</button>
     </p>
 
+  <h1> Not a member yet?</h1>
+  <nav>
+    <a routerLink="/registration" routerLinkActive="active">Registrate</a>
+  </nav>
 
   </form>
 </md-card>
