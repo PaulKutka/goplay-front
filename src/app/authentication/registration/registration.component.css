@@ -1,9 +1,4 @@
-.form {
-  text-align: center;
-  position: absolute;
-}
-
-.Absolute-Center {
+.absolute-center {
   text-align: center!important;
   justify-content: center!important;
   width: 50%;
