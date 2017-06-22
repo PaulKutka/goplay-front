@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MdDialog } from '@angular/material';
 
 @Component({
   selector: 'app-portal',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortalComponent implements OnInit {
 
-  constructor() { }
+  showDialog: boolean;
+
+  constructor(public dialog: MdDialog) { }
 
   ngOnInit() {
+  }
+
+  openDialog(){
+    this.showDialog = true;
+  }
+
+  closeDialog(){
+    this.showDialog = false;
   }
 
 }

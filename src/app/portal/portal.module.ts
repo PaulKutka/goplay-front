@@ -6,6 +6,7 @@ import { PortalComponent } from './portal.component';
 import { appRoutes } from './portal.routing';
 import { NavbarModule } from '../shared/navbar/navbar.module';
 import { MdGridListModule, MdButtonModule, MdCardModule, MdInputModule, MdListModule } from '@angular/material';
+import { DialogComponent } from '../shared/Dialog/dialog.component';
 
 @NgModule({
   imports: [
@@ -16,12 +17,14 @@ import { MdGridListModule, MdButtonModule, MdCardModule, MdInputModule, MdListMo
     MdCardModule,
     MdButtonModule,
     MdGridListModule,
-      MdListModule,
+    MdListModule,
   ],
   exports: [],
   declarations: [
-    PortalComponent
+    PortalComponent,
+    DialogComponent
   ],
   providers: [],
 })
-export class PortalModule { }
+export class PortalModule {
+}
