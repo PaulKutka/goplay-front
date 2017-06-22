@@ -6,17 +6,20 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AuthenticationComponent } from './authentication.component';
 
-import {MdInputModule} from '@angular/material';
+import { MdInputModule, MdCardModule, MdButtonModule } from '@angular/material';
 
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { appRoutes } from './authentication.routing';
-import {MdCardModule} from '@angular/material';
 
 @NgModule({
   imports: [
     BrowserModule,
     RouterModule.forChild(appRoutes),
+    ReactiveFormsModule,
+    FormsModule,
     MdInputModule,
-    MdCardModule
+    MdCardModule,
+    MdButtonModule
   ],
   exports: [],
   declarations: [
