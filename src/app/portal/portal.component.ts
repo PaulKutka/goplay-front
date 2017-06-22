@@ -21,6 +21,7 @@ export class PortalComponent implements OnInit {
   names = [];
   form: FormGroup;
 
+  timerId;
   timer = 0;
 
   showDialog: boolean;
@@ -79,13 +80,17 @@ export class PortalComponent implements OnInit {
 
   openTimer() {
     this.showTimer = true;
-    const ticks = Observable.timer(0, 1000  );
-    ticks.subscribe(t => {
-      this.timer = t;
-    });
+    if (this.showTimer) { 
+      this.timerId = setInterval(() => {
+        this.timer++;
+        console.log(this.timer);
+      }, 1000);
+    };
   }
 
   closeTimer() {
+    this.timer = 0;
+    clearInterval(this.timerId);
     this.showTimer = false;
   }
 

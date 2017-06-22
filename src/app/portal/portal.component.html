@@ -78,11 +78,11 @@
   </div>
 </app-dialog>
 
-<app-dialog [(visible)]="showTimer" >
+<app-dialog [(visible)]="showTimer">
   <div class="timer-container">
     <h2 style="font-size: 22px">Timer</h2> 
     <h1 style="font-size: 40px">{{ timer }} seconds</h1> 
     <button style="margin: 5px" md-raised-button color="primary">Finish</button>
-    <button style="margin: 5px" md-raised-button color="accent">Cancel</button>
+    <button style="margin: 5px" md-raised-button color="accent" (click)="closeTimer()">Cancel</button>
   </div>
 </app-dialog>
