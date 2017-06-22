@@ -45,6 +45,15 @@
                                 <button md-raised-button color="accent" (click)="submit()">Play Game!</button>
                             </div>
                         </div>
+                        <div class="col-sm-3 title">Opposite colleagues</div>
+                        <div layout="column" layout-align="center center">
+                            <md-input-container>
+                                <input mdInput placeholder="Colleague1" ng-model="user" [mdAutocomplete]="auto" formControlName="colleague">
+                            </md-input-container>
+                            <md-input-container>
+                                <input mdInput placeholder="Colleague2" ng-model="user" [mdAutocomplete]="auto" formControlName="colleague">
+                            </md-input-container>
+                        </div>
                     </md-card>
                 </div>
             </div>
