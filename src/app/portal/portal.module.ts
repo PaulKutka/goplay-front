@@ -5,18 +5,29 @@ import { RouterModule } from '@angular/router';
 import { PortalComponent } from './portal.component';
 import { appRoutes } from './portal.routing';
 import { NavbarModule } from '../shared/navbar/navbar.module';
-import { MdGridListModule, MdButtonModule, MdCardModule, MdInputModule, MdListModule } from '@angular/material';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import {
+  MdGridListModule,
+  MdButtonModule,
+  MdCardModule,
+  MdInputModule,
+  MdAutocompleteModule
+} from '@angular/material';
 
 @NgModule({
   imports: [
     BrowserModule,
     RouterModule.forChild(appRoutes),
+    ReactiveFormsModule,
+    FormsModule,
     NavbarModule,
     MdInputModule,
     MdCardModule,
     MdButtonModule,
     MdGridListModule,
-      MdListModule,
+    MdAutocompleteModule
   ],
   exports: [],
   declarations: [

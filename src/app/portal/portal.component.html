@@ -2,29 +2,42 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-4"></div>
+    <form [formGroup]="form">
 
-    <div class="col-lg-4">
 
-      <div class="card">
-        <md-card class="card">
-          <table>
-            <tr>
-              <td class="title">Game</td>
-            </tr>
-            <tr>
-              <td class="title">Availability</td>
-            </tr>
-            <tr>
-              <td class="title">Colleague</td>
-            </tr>
-          </table>
-        </md-card>
+      <div class="col-lg-4"></div>
+
+      <div class="col-lg-4">
+
+        <div class="card">
+          <md-card class="card">
+            <table>
+              <tr>
+                <td class="title">Game</td>
+              </tr>
+              <tr>
+                <td class="title">Availability</td>
+              </tr>
+              <tr>
+                <td class="title">Colleague</td>
+                <md-input-container>
+                  <input mdInput placeholder="Names" [mdAutocomplete]="auto" formControlName="colleague">
+                </md-input-container>
+
+                <md-autocomplete #auto="mdAutocomplete">
+                  <md-option *ngFor="let names of filteredNames | async" [value]="names">
+                    {{ names }}
+                  </md-option>
+                </md-autocomplete>
+              </tr>
+            </table>
+          </md-card>
+        </div>
+
       </div>
 
-    </div>
-
-    <div class="col-lg-4"></div>
+      <div class="col-lg-4"></div>
+    </form>
   </div>
 
 </div>
