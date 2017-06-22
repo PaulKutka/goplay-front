@@ -11,10 +11,12 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 
 import { appRoutes } from './app.routing';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
