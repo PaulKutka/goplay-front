@@ -8,7 +8,8 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AuthenticationService } from './services/authentication.service';
-import { AuthenticationComponent } from './authentication.component';
+import { InformationService } from '../portal/services/information.service';
+import { AuthenticationComponent } from './authentication.component'; 
 
 import { appRoutes } from './authentication.routing';
 
@@ -31,7 +32,8 @@ import { appRoutes } from './authentication.routing';
     AuthenticationComponent
   ],
   providers: [
-    AuthenticationService
+    AuthenticationService,
+    InformationService
   ],
 })
 export class AuthenticationModule { }

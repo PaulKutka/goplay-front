@@ -1,3 +1,5 @@
+import { InformationService } from './services/information.service';
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -14,82 +16,45 @@ import { Game } from '../shared/models/games';
 })
 export class PortalComponent implements OnInit {
 
+  names = [];
   form: FormGroup;
+  showDialog: boolean;
   filteredNames: any;
   time : Time[] = [];
   games : Game[] = [];
   error : any;
 
-names = [
-    'Alabama',
-    'Alaska',
-    'Arizona',
-    'Arkansas',
-    'California',
-    'Colorado',
-    'Connecticut',
-    'Delaware',
-    'Florida',
-    'Georgia',
-    'Hawaii',
-    'Idaho',
-    'Illinois',
-    'Indiana',
-    'Iowa',
-    'Kansas',
-    'Kentucky',
-    'Louisiana',
-    'Maine',
-    'Maryland',
-    'Massachusetts',
-    'Michigan',
-    'Minnesota',
-    'Mississippi',
-    'Missouri',
-    'Montana',
-    'Nebraska',
-    'Nevada',
-    'New Hampshire',
-    'New Jersey',
-    'New Mexico',
-    'New York',
-    'North Carolina',
-    'North Dakota',
-    'Ohio',
-    'Oklahoma',
-    'Oregon',
-    'Pennsylvania',
-    'Rhode Island',
-    'South Carolina',
-    'South Dakota',
-    'Tennessee',
-    'Texas',
-    'Utah',
-    'Vermont',
-    'Virginia',
-    'Washington',
-    'West Virginia',
-    'Wisconsin',
-    'Wyoming',
-  ];
-
   constructor(
     private fb: FormBuilder,
+    private infoService: InformationService
     private gameService: GameService
   ) {
     this.getTimes();
     this.getGames();
   }
 
-  showDialog: boolean;
 
   ngOnInit() {
     this.form = this.fb.group({
       colleague: ['', [Validators.required]]
     });
+
+    this.getAllUsers();
+  }
+
+  nameValueChanges() {
     this.filteredNames = this.form.controls.colleague.valueChanges
         .startWith(null)
         .map(name => this.filterNames(name));
+  }
+
+  getAllUsers() {
+    this.infoService
+      .getAllUsers()
+      .subscribe(res => {
+        this.names = res.name;
+        this.nameValueChanges();
+      });
   }
 
   filterNames(val: string) {
@@ -97,7 +62,7 @@ names = [
                : this.names;
   }
 
-  openDialog(){
+  openDialog() {
     this.showDialog = true;
   }
 
