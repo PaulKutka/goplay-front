@@ -1,26 +1,23 @@
 <div class="absolute-center">
   <md-card>
-
-    <md-card-title> Login</md-card-title>
-
-
+    <md-card-title>Login</md-card-title>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-    <p>
-      <md-input-container>
-        <input mdInput placeholder="email@gmail.com" formControlName="email">
-      </md-input-container>
-    </p>
+      <p>
+        <md-input-container>
+          <input mdInput placeholder="email@gmail.com" formControlName="email">
+        </md-input-container>
+      </p>
 
-    <p>
-      <md-input-container>
-        <input mdInput placeholder="Password" formControlName="password">
-      </md-input-container>
-    </p>
+      <p>
+        <md-input-container>
+          <input mdInput placeholder="Password" formControlName="password">
+        </md-input-container>
+      </p>
 
-    <md-card-content>
-      <button md-raised-button color="primary">Submit</button>
-    </md-card-content>
+      <md-card-content>
+        <button md-raised-button color="primary">Submit</button>
+      </md-card-content>
 
       <md-card-content>
         <p>Not a member yet?</p>
@@ -28,5 +25,5 @@
       </md-card-content>
 
     </form>
-</md-card>
+  </md-card>
 </div>
