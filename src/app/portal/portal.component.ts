@@ -1,7 +1,7 @@
 import { InformationService } from './services/information.service';
 
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
@@ -38,7 +38,7 @@ export class PortalComponent implements OnInit {
     this.form = this.fb.group({
       colleague: ['', [Validators.required]],
       game: ['', [Validators.required]],
-      times: this.fb.array([])
+      time: ['', [Validators.required]]
     });
 
     this.getAllUsers();
@@ -77,6 +77,7 @@ export class PortalComponent implements OnInit {
         games => {
           this.time = games;
           console.log(this.time);
+          console.log(this.time[1].time)
         },
         error => {
           this.error = error
