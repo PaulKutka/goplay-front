@@ -85,7 +85,9 @@ names = [
 
   ngOnInit() {
     this.form = this.fb.group({
-      colleague: ['', [Validators.required]]
+      colleague: ['', [Validators.required]],
+      gameName: ['', [Validators.required]],
+      times: this.fb.array([])
     });
     this.filteredNames = this.form.controls.colleague.valueChanges
         .startWith(null)
@@ -99,6 +101,10 @@ names = [
 
   openDialog(){
     this.showDialog = true;
+  }
+
+  submit(){
+    console.log(this.form.value);
   }
 
   getTimes(){
