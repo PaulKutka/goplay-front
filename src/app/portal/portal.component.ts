@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
+import { GameService } from '../authentication/services/game.service';
+import { Time } from '../shared/models/time';
+import { Game } from '../shared/models/games';
 
 @Component({
   selector: 'app-portal',
@@ -13,6 +16,9 @@ export class PortalComponent implements OnInit {
 
   form: FormGroup;
   filteredNames: any;
+  time : Time[] = [];
+  games : Game[] = [];
+  error : any;
 
 names = [
     'Alabama',
@@ -68,8 +74,12 @@ names = [
   ];
 
   constructor(
-    private fb: FormBuilder
-  ) {}
+    private fb: FormBuilder,
+    private gameService: GameService
+  ) {
+    this.getTimes();
+    this.getGames();
+  }
 
   showDialog: boolean;
 
@@ -89,6 +99,30 @@ names = [
 
   openDialog(){
     this.showDialog = true;
+  }
+
+  getTimes(){
+    this.gameService.getTimes().subscribe(
+        games => {
+          this.time = games;
+          console.log(this.time);
+        },
+        error => {
+          this.error = error
+        }
+    );
+  }
+
+  getGames(){
+    this.gameService.getGames().subscribe(
+        games => {
+          this.games = games;
+          console.log(this.games);
+        },
+        error => {
+          this.error = error
+        }
+    );
   }
 
   closeDialog(){
