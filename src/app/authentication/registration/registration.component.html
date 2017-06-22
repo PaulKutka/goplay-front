@@ -1,9 +1,10 @@
+<div class="absolute-center">
 <md-card>
-  <md-card-header>
-    <h2>Registrate</h2>
-  </md-card-header>
 
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <md-card-title>  Registrate</md-card-title>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
 
     <p>
       <md-input-container>
@@ -32,6 +33,12 @@
     <button md-raised-button type="submit" [disabled]="form.invalid">
         Registrate
       </button>
+      </md-card-content>
 
-  </form>
-</md-card>
+      <md-card-content>Back to:
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+      </md-card-content>
+
+    </form>
+  </md-card>
+</div>
