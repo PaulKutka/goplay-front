@@ -1,9 +1,11 @@
-<md-card>
-  <md-card-header>
-    Login
-  </md-card-header>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      
+<div class="Absolute-Center">
+  <md-card>
+
+    <md-card-title> Login</md-card-title>
+
+
+    <p [formGroup]="form" (ngSubmit)="onSubmit()">
+
     <p>
       <md-input-container>
         <input mdInput placeholder="email@gmail.com" formControlName="email">
@@ -16,14 +18,15 @@
       </md-input-container>
     </p>
 
-    <p>
+    <md-card-content>
       <button md-raised-button type="submit" [disabled]="form.invalid">Submit</button>
-    </p>
+    </md-card-content>
 
-  <h1> Not a member yet?</h1>
-  <nav>
-    <a routerLink="/registration" routerLinkActive="active">Registrate</a>
-  </nav>
+      <md-card-content>
+        <p>Not a member yet?</p>
+        <a routerLink="/registration" routerLinkActive="active"> Registrate</a>
+      </md-card-content>
 
-  </form>
+
 </md-card>
+</div>
