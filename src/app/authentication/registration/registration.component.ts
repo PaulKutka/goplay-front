@@ -22,7 +22,7 @@ export class RegistrationComponent implements OnInit {
       name: ['', [Validators.required]],
       lastname: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required]],
     });
   }
 
@@ -31,5 +31,4 @@ export class RegistrationComponent implements OnInit {
       .registrate(this.form.value)
       .subscribe(res  => console.log(res))
   }
-
 }
