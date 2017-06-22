@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 
 import { NavbarComponent } from './navbar.component';
-
-import { MdToolbarModule } from '@angular/material';
+import { MdToolbarModule, MdButtonModule } from '@angular/material';
 
 @NgModule({
   imports: [
-    MdToolbarModule
+    MdToolbarModule,
+    MdButtonModule
   ],
   exports: [
     NavbarComponent
