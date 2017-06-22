@@ -29,7 +29,7 @@ export class RegistrationComponent implements OnInit {
   onSubmit() {
     this.authService
       .registrate(this.form.value)
-      .subscribe(res  => console.log(res.json()))
+      .subscribe(res  => console.log(res))
   }
 
 }

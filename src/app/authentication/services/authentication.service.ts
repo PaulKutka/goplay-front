@@ -10,14 +10,14 @@ export class AuthenticationService {
   registrate(payload) {
     const headers = new Headers();
     return this.http
-      .post(`${environment}/register`, payload, { headers })
+      .post(`${environment.apiUrl}/register`, payload, { headers })
       .map((res: Response) => res.json());
   }
 
   login(payload) {
     const headers = new Headers();
     return this.http
-      .post(`${environment}/login`, payload, { headers })
+      .post(`${environment.apiUrl}/login`, payload, { headers })
       .map((res: Response) => res.json());
   }
 }
