@@ -6,7 +6,10 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AuthenticationComponent } from './authentication.component';
 
-import {MdInputModule} from '@angular/material';
+import { MdInputModule } from '@angular/material';
+
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgxErrorsModule } from '@ultimate/ngxerrors';
 
 import { appRoutes } from './authentication.routing';
 
@@ -14,6 +17,9 @@ import { appRoutes } from './authentication.routing';
   imports: [
     BrowserModule,
     RouterModule.forChild(appRoutes),
+    ReactiveFormsModule,
+    FormsModule,
+    NgxErrorsModule,
     MdInputModule
   ],
   exports: [],

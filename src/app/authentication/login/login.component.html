@@ -1,8 +1,13 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
 
 <md-input-container>
-  <input mdInput placeholder="Email@gmail.com">
+  <input mdInput placeholder="Email@gmail.com" formControlName="email">
 </md-input-container>
 
 <md-input-container>
-  <input mdInput placeholder="Password">
+  <input mdInput placeholder="Password" formControlName="password">
 </md-input-container>
+
+<button type="submit" [disabled]="form.invalid">Submit</button>
+</form>
