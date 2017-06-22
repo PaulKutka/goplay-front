@@ -12,6 +12,20 @@ th, td {
     text-align: left;
 }
 
+.big{
+    box-sizing: border-box;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: border-color ease 280ms;
+    width: 20px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 50%;
+;
+}
+
 .padding {
     padding: 15px;
     text-align: left;
