@@ -20,13 +20,13 @@ export class PortalComponent implements OnInit {
   form: FormGroup;
   showDialog: boolean;
   filteredNames: any;
-  time : Time[] = [];
-  games : Game[] = [];
-  error : any;
+  time: Time[] = [];
+  games: Game[] = [];
+  error: any;
 
   constructor(
     private fb: FormBuilder,
-    private infoService: InformationService
+    private infoService: InformationService,
     private gameService: GameService
   ) {
     this.getTimes();
@@ -52,7 +52,7 @@ export class PortalComponent implements OnInit {
     this.infoService
       .getAllUsers()
       .subscribe(res => {
-        this.names = res.name;
+        res.map(person => this.names.push(person.name));
         this.nameValueChanges();
       });
   }
@@ -66,7 +66,7 @@ export class PortalComponent implements OnInit {
     this.showDialog = true;
   }
 
-  getTimes(){
+  getTimes() {
     this.gameService.getTimes().subscribe(
         games => {
           this.time = games;
@@ -78,7 +78,7 @@ export class PortalComponent implements OnInit {
     );
   }
 
-  getGames(){
+  getGames() {
     this.gameService.getGames().subscribe(
         games => {
           this.games = games;
@@ -90,7 +90,7 @@ export class PortalComponent implements OnInit {
     );
   }
 
-  closeDialog(){
+  closeDialog() {
     this.showDialog = false;
   }
 
