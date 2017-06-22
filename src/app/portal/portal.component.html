@@ -11,9 +11,13 @@
             <div class="container" style="width: inherit;">
               <div class="row padding">
                 <div class="col-sm-3 title">Game</div>
-                <div *ngFor="let game of games" class="col-sm-3">
-                  <md-checkbox>{{game.title}}</md-checkbox>
+                <md-radio-group>
+                <div *ngFor="let game of games" class="col-sm-3"> 
+                  <md-radio-button value="{{game.title}}">
+                    {{game.title}}
+                  </md-radio-button> 
                 </div>
+                </md-radio-group>
               </div>
               <div class="row padding">
                 <div class="col-sm-3 title">Availability</div>

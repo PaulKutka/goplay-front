@@ -13,7 +13,8 @@ import {
   MdButtonModule,
   MdCardModule,
   MdInputModule,
-  MdAutocompleteModule, MdCheckboxModule
+  MdAutocompleteModule,
+  MdRadioModule
 } from '@angular/material';
 import { DialogComponent } from '../shared/dialog/dialog.component';
 import { GameService } from '../authentication/services/game.service';
@@ -30,7 +31,7 @@ import { GameService } from '../authentication/services/game.service';
     MdButtonModule,
     MdGridListModule,
     MdAutocompleteModule,
-      MdCheckboxModule
+    MdRadioModule
   ],
   exports: [],
   declarations: [
