@@ -7,8 +7,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AuthenticationComponent } from './authentication.component';
 
 import { MdInputModule, MdCardModule, MdButtonModule } from '@angular/material';
-
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 import { appRoutes } from './authentication.routing';
 
 @NgModule({
