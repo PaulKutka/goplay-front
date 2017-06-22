@@ -1,5 +1,6 @@
 .title {
     font-weight: 700;
+    padding: 10px;
 }
 
 table{
@@ -9,6 +10,20 @@ table{
 th, td {
     padding: 15px;
     text-align: left;
+}
+
+.big{
+    box-sizing: border-box;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: border-color ease 280ms;
+    width: 20px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 50%;
+;
 }
 
 .padding {
@@ -37,9 +52,6 @@ th, td {
 
 div label input {
     margin-right:100px;
-}
-body {
-    font-family:sans-serif;
 }
 
 .ck-button {
@@ -72,4 +84,9 @@ body {
 .ck-button input:checked + span {
     background-color: #71be83;
     color:#fff;
+}
+
+.center-block {
+  text-align: center;
+  margin: 20px;
 }

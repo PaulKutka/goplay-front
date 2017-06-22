@@ -1,3 +1,5 @@
+import { InformationService } from './services/information.service';
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -14,84 +16,47 @@ import { Game } from '../shared/models/games';
 })
 export class PortalComponent implements OnInit {
 
+  names = [];
   form: FormGroup;
+  showDialog: boolean;
   filteredNames: any;
-  time : Time[] = [];
-  games : Game[] = [];
-  error : any;
-
-names = [
-    'Alabama',
-    'Alaska',
-    'Arizona',
-    'Arkansas',
-    'California',
-    'Colorado',
-    'Connecticut',
-    'Delaware',
-    'Florida',
-    'Georgia',
-    'Hawaii',
-    'Idaho',
-    'Illinois',
-    'Indiana',
-    'Iowa',
-    'Kansas',
-    'Kentucky',
-    'Louisiana',
-    'Maine',
-    'Maryland',
-    'Massachusetts',
-    'Michigan',
-    'Minnesota',
-    'Mississippi',
-    'Missouri',
-    'Montana',
-    'Nebraska',
-    'Nevada',
-    'New Hampshire',
-    'New Jersey',
-    'New Mexico',
-    'New York',
-    'North Carolina',
-    'North Dakota',
-    'Ohio',
-    'Oklahoma',
-    'Oregon',
-    'Pennsylvania',
-    'Rhode Island',
-    'South Carolina',
-    'South Dakota',
-    'Tennessee',
-    'Texas',
-    'Utah',
-    'Vermont',
-    'Virginia',
-    'Washington',
-    'West Virginia',
-    'Wisconsin',
-    'Wyoming',
-  ];
+  time: Time[] = [];
+  games: Game[] = [];
+  error: any;
 
   constructor(
     private fb: FormBuilder,
+    private infoService: InformationService,
     private gameService: GameService
   ) {
     this.getTimes();
     this.getGames();
   }
 
-  showDialog: boolean;
 
   ngOnInit() {
     this.form = this.fb.group({
       colleague: ['', [Validators.required]],
-      gameName: ['', [Validators.required]],
+      game: ['', [Validators.required]],
       times: this.fb.array([])
     });
+
+    this.getAllUsers();
+  }
+
+  nameValueChanges() {
     this.filteredNames = this.form.controls.colleague.valueChanges
         .startWith(null)
         .map(name => this.filterNames(name));
+  }
+
+  getAllUsers() {
+    this.infoService
+      .getAllUsers()
+      .subscribe(res => {
+        res.map(person => this.names.push(person.name));
+        this.nameValueChanges();
+      });
   }
 
   filterNames(val: string) {
@@ -99,7 +64,7 @@ names = [
                : this.names;
   }
 
-  openDialog(){
+  openDialog() {
     this.showDialog = true;
   }
 
@@ -107,7 +72,7 @@ names = [
     console.log(this.form.value);
   }
 
-  getTimes(){
+  getTimes() {
     this.gameService.getTimes().subscribe(
         games => {
           this.time = games;
@@ -119,7 +84,7 @@ names = [
     );
   }
 
-  getGames(){
+  getGames() {
     this.gameService.getGames().subscribe(
         games => {
           this.games = games;
@@ -131,7 +96,7 @@ names = [
     );
   }
 
-  closeDialog(){
+  closeDialog() {
     this.showDialog = false;
   }
 
