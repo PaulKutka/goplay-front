@@ -11,6 +11,11 @@ th, td {
     text-align: left;
 }
 
+.padding {
+    padding: 15px;
+    text-align: left;
+}
+
 .clickable {
     border: 1px solid;
     color: #818181;
@@ -35,7 +40,6 @@ body {
 
 .ck-button {
     background-color:#EFEFEF;
-    border-radius:4px;
     padding: 2px;
     overflow:auto;
     float:left;
