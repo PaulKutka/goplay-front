@@ -1,4 +1,4 @@
-<div class="absolute-center">
+<div class="absolute-center" >
   <md-card>
 
     <md-card-title> Registrate</md-card-title>
@@ -8,32 +8,36 @@
 
       <p>
         <md-input-container>
-          <input mdInput placeholder="Name" formControlName="name">
+          <input mdInput placeholder="Name" formControlName="name" required>
         </md-input-container>
       </p>
 
       <p>
         <md-input-container>
-          <input mdInput placeholder="Surname" formControlName="lastname">
+          <input mdInput placeholder="Surname" formControlName="lastname" required>
         </md-input-container>
       </p>
 
       <p>
         <md-input-container>
-          <input mdInput placeholder="Email" formControlName="email">
+          <input mdInput placeholder="Email" formControlName="email" required>
         </md-input-container>
       </p>
 
       <p>
         <md-input-container>
-          <input mdInput placeholder="Password" formControlName="password">
+          <input mdInput placeholder="Password" formControlName="password" type="password"required>
+        </md-input-container>
+      </p>
+
+      <p>
+        <md-input-container>
+          <input mdInput placeholder="Reapeat Password" formControlName="password" type="password"required>
         </md-input-container>
       </p>
 
       <md-card-content>
-        <button md-raised-button type="submit" [disabled]="form.invalid">
-        Registrate
-      </button>
+        <button md-raised-button color="primary" [disabled]="form.invalid">Registrate</button>
       </md-card-content>
 
       <md-card-content>Back to:
