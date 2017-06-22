@@ -1,36 +1,37 @@
-  <md-card>
-    <md-card-header>
-      <h2>Registrate</h2>
-    </md-card-header>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+<md-card>
+  <md-card-header>
+    <h2>Registrate</h2>
+  </md-card-header>
 
-      <p>
-        <md-input-container>
-          <input mdInput placeholder="Name" formControlName="name">
-        </md-input-container>
-      </p>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-      <p>
-        <md-input-container>
-          <input mdInput placeholder="Surname" formControlName="lastname">
-        </md-input-container>
-      </p>
+    <p>
+      <md-input-container>
+        <input mdInput placeholder="Name" formControlName="name">
+      </md-input-container>
+    </p>
 
-      <p>
-        <md-input-container>
-          <input mdInput placeholder="Email" formControlName="email">
-        </md-input-container>
-      </p>
+    <p>
+      <md-input-container>
+        <input mdInput placeholder="Surname" formControlName="lastname">
+      </md-input-container>
+    </p>
 
-      <p>
-        <md-input-container>
-          <input mdInput placeholder="Password" formControlName="password">
-        </md-input-container>
-      </p>
+    <p>
+      <md-input-container>
+        <input mdInput placeholder="Email" formControlName="email">
+      </md-input-container>
+    </p>
 
-      <button md-raised-button type="submit" [disabled]="form.invalid">
+    <p>
+      <md-input-container>
+        <input mdInput placeholder="Password" formControlName="password">
+      </md-input-container>
+    </p>
+
+    <button md-raised-button type="submit" [disabled]="form.invalid">
         Registrate
       </button>
 
-    </form>
-  </md-card>
+  </form>
+</md-card>
