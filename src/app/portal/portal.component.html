@@ -12,10 +12,10 @@
               <div class="row padding">
                 <div class="col-sm-3 title">Game</div>
                 <md-radio-group>
-                <div *ngFor="let game of games" class="col-sm-3"> 
+                <div *ngFor="let game of games" class="col-sm-3">
                   <md-radio-button value="{{game.title}}">
                     {{game.title}}
-                  </md-radio-button> 
+                  </md-radio-button>
                 </div>
                 </md-radio-group>
               </div>
@@ -39,15 +39,22 @@
                 </div>
               </div>
             </div>
+
+
+              <div class="col-sm-3 title">Opposite colleagues</div>
+            <div layout="column" layout-align="center center">
+              <md-input-container>
+                <input mdInput placeholder="Colleague1" ng-model="user" [mdAutocomplete]="auto" formControlName="colleague">
+              </md-input-container>
+              <md-input-container>
+                <input mdInput placeholder="Colleague2" ng-model="user" [mdAutocomplete]="auto" formControlName="colleague">
+              </md-input-container>
+            </div>
           </md-card>
         </div>
-
       </div>
-
-      <div class="col-sm-2"></div>
     </form>
   </div>
-
 </div>
 
 <app-dialog [(visible)]="showDialog">
