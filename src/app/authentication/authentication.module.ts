@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { MdButtonModule, MdCardModule, MdInputModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { AuthenticationService } from './services/authentication.service';
 import { AuthenticationComponent } from './authentication.component';
-
-import { MdInputModule, MdCardModule, MdButtonModule } from '@angular/material';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { appRoutes } from './authentication.routing';
 
 @NgModule({
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forChild(appRoutes),
     ReactiveFormsModule,
     FormsModule,
@@ -28,6 +30,8 @@ import { appRoutes } from './authentication.routing';
     RegistrationComponent,
     AuthenticationComponent
   ],
-  providers: [],
+  providers: [
+    AuthenticationService
+  ],
 })
 export class AuthenticationModule { }

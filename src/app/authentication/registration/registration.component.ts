@@ -1,3 +1,5 @@
+import { AuthenticationService } from '../services/authentication.service';
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -11,7 +13,8 @@ export class RegistrationComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private authService: AuthenticationService
   ) { }
 
   ngOnInit() {
@@ -24,7 +27,9 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form.value);
+    this.authService
+      .registrate(this.form.value)
+      .subscribe(res  => console.log(res))
   }
 
 }

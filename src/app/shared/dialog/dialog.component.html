@@ -1,0 +1,4 @@
+<div *ngIf="visible" class="dialog modal-scroll modal min-width-500" [@dialog]>
+    <ng-content></ng-content>
+</div>
+<div *ngIf="visible" class="overlay" (click)="close()"></div>

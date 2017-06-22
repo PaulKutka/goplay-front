@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-not-found',
+  templateUrl: './not-found.component.html',
+  styleUrls: ['./not-found.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NotFoundComponent implements OnInit {
 
   constructor(
     private router: Router
@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
-  logout() {
+  navigateHome() {
     this.router.navigate(['login']);
   }
 
