@@ -3,8 +3,6 @@
 <div class="container">
   <div class="row">
     <form [formGroup]="form">
-
-
       <div class="col-lg-4"></div>
 
       <div class="col-lg-4">
@@ -17,6 +15,9 @@
               </tr>
               <tr>
                 <td class="title">Availability</td>
+                  <td>
+                      <button md-button (click)="openDialog()">Check availability</button>
+                  </td>
               </tr>
               <tr>
                 <td class="title">Colleague</td>
@@ -41,3 +42,46 @@
   </div>
 
 </div>
+
+<app-dialog [(visible)]="showDialog">
+    <div style="padding: 2em"></div>
+    <div class="container" style="max-width: 500px">
+        <div class="row">
+            <div class="col-md-4 ck-button">
+                    <label style="width: 100%">
+                        <input type="checkbox" value="1"><span>time</span>
+                    </label>
+            </div>
+            <div class="col-md-4 ck-button">
+                <label style="width: 100%">
+                    <input type="checkbox" value="2"><span>time</span>
+                </label>
+            </div>
+            <div class="col-md-4 ck-button">
+                <label style="width: 100%">
+                    <input type="checkbox" value="3"><span>time</span>
+                </label>
+            </div>
+            <div class="col-md-4 ck-button">
+                <label style="width: 100%">
+                    <input type="checkbox" value="4"><span>time</span>
+                </label>
+            </div>
+            <div class="col-md-4 ck-button">
+                <label style="width: 100%">
+                    <input type="checkbox" value="2"><span>time</span>
+                </label>
+            </div>
+            <div class="col-md-4 ck-button">
+                <label style="width: 100%">
+                    <input type="checkbox" value="2"><span>time</span>
+                </label>
+            </div>
+
+        </div>
+    </div>
+    <div class="center-block">
+        <button md-button (click)="closeDialog()">Apply</button>
+        <button md-button (click)="closeDialog()">close</button>
+    </div>
+</app-dialog>

@@ -15,6 +15,7 @@ import {
   MdInputModule,
   MdAutocompleteModule
 } from '@angular/material';
+import { DialogComponent } from '../shared/Dialog/dialog.component';
 
 @NgModule({
   imports: [
@@ -31,8 +32,10 @@ import {
   ],
   exports: [],
   declarations: [
-    PortalComponent
+    PortalComponent,
+    DialogComponent
   ],
   providers: [],
 })
-export class PortalModule { }
+export class PortalModule {
+}

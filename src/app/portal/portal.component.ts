@@ -69,13 +69,14 @@ names = [
 
   constructor(
     private fb: FormBuilder
-  ) {
-  }
+  ) {}
+
+  showDialog: boolean;
 
   ngOnInit() {
     this.form = this.fb.group({
       colleague: ['', [Validators.required]]
-    })
+    });
     this.filteredNames = this.form.controls.colleague.valueChanges
         .startWith(null)
         .map(name => this.filterNames(name));
@@ -84,6 +85,14 @@ names = [
   filterNames(val: string) {
     return val ? this.names.filter(s => s.toLowerCase().indexOf(val.toLowerCase()) === 0)
                : this.names;
+  }
+
+  openDialog(){
+    this.showDialog = true;
+  }
+
+  closeDialog(){
+    this.showDialog = false;
   }
 
 }
