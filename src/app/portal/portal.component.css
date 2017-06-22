@@ -16,6 +16,10 @@ th, td {
     text-align: left;
 }
 
+.text-center {
+    text-align: center;
+}
+
 .clickable {
     border: 1px solid;
     color: #818181;
