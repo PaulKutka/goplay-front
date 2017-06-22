@@ -30,7 +30,9 @@ export class PortalComponent implements OnInit {
     });
 
     this.getAllUsers();
+  }
 
+  nameValueChanges() {
     this.filteredNames = this.form.controls.colleague.valueChanges
         .startWith(null)
         .map(name => this.filterNames(name));
@@ -39,7 +41,10 @@ export class PortalComponent implements OnInit {
   getAllUsers() {
     this.infoService
       .getAllUsers()
-      .subscribe(res => this.names = res);
+      .subscribe(res => {
+        this.names = res.name;
+        this.nameValueChanges();
+      });
   }
 
   filterNames(val: string) {

@@ -17,5 +17,4 @@ export class InformationService {
       { headers }
     ).map((res: Response) => res.json());
   }
-
 }
