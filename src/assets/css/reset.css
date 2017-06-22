@@ -50,3 +50,8 @@ table {
 .card {
     padding: 2em;
 }
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
