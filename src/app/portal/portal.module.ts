@@ -15,7 +15,7 @@ import {
   MdInputModule,
   MdAutocompleteModule
 } from '@angular/material';
-import { DialogComponent } from '../shared/Dialog/dialog.component';
+import { DialogComponent } from '../shared/dialog/dialog.component';
 
 @NgModule({
   imports: [
