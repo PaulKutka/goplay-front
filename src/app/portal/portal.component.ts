@@ -2,9 +2,11 @@ import { InformationService } from './services/information.service';
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
+
 import { GameService } from '../authentication/services/game.service';
 import { Time } from '../shared/models/time';
 import { Game } from '../shared/models/games';
@@ -18,7 +20,12 @@ export class PortalComponent implements OnInit {
 
   names = [];
   form: FormGroup;
+
+  timer = 0;
+
   showDialog: boolean;
+  showTimer: boolean;
+
   filteredNames: any;
   time: Time[] = [];
   games: Game[] = [];
@@ -66,6 +73,26 @@ export class PortalComponent implements OnInit {
     this.showDialog = true;
   }
 
+  closeDialog() {
+    this.showDialog = false;
+  }
+
+  openTimer() {
+    this.showTimer = true;
+    const ticks = Observable.timer(0, 1000  );
+    ticks.subscribe(t => {
+      this.timer = t;
+    });
+  }
+
+  closeTimer() {
+    this.showTimer = false;
+  }
+
+  onSubmit() {
+    this.openTimer();
+  }
+
   getTimes() {
     this.gameService.getTimes().subscribe(
         games => {
@@ -88,10 +115,6 @@ export class PortalComponent implements OnInit {
           this.error = error
         }
     );
-  }
-
-  closeDialog() {
-    this.showDialog = false;
   }
 
 }
