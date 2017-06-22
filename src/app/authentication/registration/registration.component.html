@@ -29,13 +29,15 @@
         </md-input-container>
       </p>
 
-      <button md-raised-button type="submit" [disabled]="form.invalid">
+      <md-card-content>
+        <button md-raised-button color="primary" type="submit" [disabled]="form.invalid">
         Registrate
       </button>
+      </md-card-content>
 
-      <nav>
+      <md-card-content>Back to:
         <a routerLink="/login" routerLinkActive="active">Login</a>
-      </nav>
+      </md-card-content>
 
     </form>
   </md-card>
