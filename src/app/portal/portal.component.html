@@ -1,91 +1,72 @@
 <app-navbar></app-navbar>
 
 <div class="container">
-    <div class="row">
-        <form [formGroup]="form">
-            <div class="col-md-4"></div>
+  <div class="row">
+    <form [formGroup]="form">
+      <div class="col-sm-2"></div>
 
-            <div class="col-md-4">
-
-                <div class="card">
-                    <md-card class="card">
-                        <div class="container">
-                            <div class="row padding">
-                                <div class="col-sm-3 title">Game</div>
-                                <div class="col-sm-9"></div>
-                            </div>
-                            <div class="row padding">
-                                <div class="col-sm-3 title">Availability</div>
-                                <div class="col-sm-9">
-                                    <button md-button (click)="openDialog()">Check availability</button>
-                                </div>
-                            </div>
-                            <div class="row padding">
-                                <div class="col-sm-3 title">Colleague</div>
-                                <div class="col-sm-9">
-                                    <md-input-container>
-                                        <input mdInput placeholder="Names" [mdAutocomplete]="auto"
-                                               formControlName="colleague">
-                                    </md-input-container>
-
-                                    <md-autocomplete #auto="mdAutocomplete">
-                                        <md-option *ngFor="let names of filteredNames | async" [value]="names">
-                                            {{ names }}
-                                        </md-option>
-                                    </md-autocomplete>
-                                </div>
-                            </div>
-                        </div>
-                    </md-card>
+      <div class="col-sm-10">
+        <div class="card">
+          <md-card class="card">
+            <div class="container" style="width: inherit;">
+              <div class="row padding">
+                <div class="col-sm-3 title">Game</div>
+                <md-radio-group>
+                <div *ngFor="let game of games" class="col-sm-3"> 
+                  <md-radio-button value="{{game.title}}">
+                    {{game.title}}
+                  </md-radio-button> 
                 </div>
-
+                </md-radio-group>
+              </div>
+              <div class="row padding">
+                <div class="col-sm-3 title">Availability</div>
+                <div class="col-sm-9">
+                  <button md-raised-button color="primary" (click)="openDialog()">Check availability</button>
+                </div>
+              </div>
+              <div class="row padding">
+                <div class="col-sm-3 title">Colleague</div>
+                <div class="col-sm-9">
+                  <md-input-container>
+                    <input mdInput placeholder="Names" [mdAutocomplete]="auto" formControlName="colleague">
+                  </md-input-container>
+                  <md-autocomplete #auto="mdAutocomplete">
+                    <md-option *ngFor="let names of filteredNames | async" [value]="names">
+                      {{ names }}
+                    </md-option>
+                  </md-autocomplete>
+                </div>
+              </div>
             </div>
+          </md-card>
+        </div>
 
-            <div class="col-md-4"></div>
-        </form>
-    </div>
+      </div>
+
+      <div class="col-sm-2"></div>
+    </form>
+  </div>
 
 </div>
 
 <app-dialog [(visible)]="showDialog">
-    <div style="padding: 2em"></div>
-    <div class="container" style="max-width: 500px">
-        <div class="row">
-            <div class="col-xs-4 ck-button">
-                <label style="width: 100%">
-                    <input type="checkbox" value="1"><span>time</span>
-                </label>
-            </div>
-            <div class="col-xs-4 ck-button">
-                <label style="width: 100%">
-                    <input type="checkbox" value="2"><span>time</span>
-                </label>
-            </div>
-            <div class="col-xs-4 ck-button">
-                <label style="width: 100%">
-                    <input type="checkbox" value="3"><span>time</span>
-                </label>
-            </div>
-            <div class="col-xs-4 ck-button">
-                <label style="width: 100%">
-                    <input type="checkbox" value="4"><span>time</span>
-                </label>
-            </div>
-            <div class="col-xs-4 ck-button">
-                <label style="width: 100%">
-                    <input type="checkbox" value="2"><span>time</span>
-                </label>
-            </div>
-            <div class="col-xs-4 ck-button">
-                <label style="width: 100%">
-                    <input type="checkbox" value="2"><span>time</span>
-                </label>
-            </div>
-
+  <div *ngIf="games && time" class="text-center">
+    <div style="padding: 2em; font-size: 22px;">
+      <h2>Time Availability</h2>
+    </div>
+    <div class="container" style="max-width: 500px; padding: 15px">
+      <div class="row">
+        <div *ngFor="let gameTime of time" class="col-xs-4 ck-button">
+          <label style="width: 100%">
+            <input type="checkbox" value="gameTime.id"><span>{{gameTime.time}}</span>
+          </label>
         </div>
+      </div>
     </div>
     <div class="center-block">
-        <button md-button (click)="closeDialog()">Apply</button>
-        <button md-button (click)="closeDialog()">close</button>
+      <button md-raised-button color="primary" (click)="closeDialog()">Apply</button>
+      <button md-raised-button color="accent" (click)="closeDialog()">Close</button>
     </div>
+  </div>
 </app-dialog>

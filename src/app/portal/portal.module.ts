@@ -13,9 +13,11 @@ import {
   MdButtonModule,
   MdCardModule,
   MdInputModule,
-  MdAutocompleteModule
+  MdAutocompleteModule,
+  MdRadioModule
 } from '@angular/material';
 import { DialogComponent } from '../shared/dialog/dialog.component';
+import { GameService } from '../authentication/services/game.service';
 
 @NgModule({
   imports: [
@@ -28,14 +30,17 @@ import { DialogComponent } from '../shared/dialog/dialog.component';
     MdCardModule,
     MdButtonModule,
     MdGridListModule,
-    MdAutocompleteModule
+    MdAutocompleteModule,
+    MdRadioModule
   ],
   exports: [],
   declarations: [
     PortalComponent,
     DialogComponent
   ],
-  providers: [],
+  providers: [
+      GameService
+  ],
 })
 export class PortalModule {
 }
