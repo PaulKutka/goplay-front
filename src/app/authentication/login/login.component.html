@@ -1,3 +1,25 @@
-<p>
-  login works!
-</p>
+<md-card>
+  <md-card-header>
+    Login
+  </md-card-header>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <p>
+      <md-input-container>
+        <input mdInput placeholder="email@gmail.com" formControlName="email">
+      </md-input-container>
+    </p>
+
+    <p>
+      <md-input-container>
+        <input mdInput placeholder="Password" formControlName="password">
+      </md-input-container>
+    </p>
+
+    <p>
+      <button md-raised-button type="submit" [disabled]="form.invalid">Submit</button>
+    </p>
+
+
+  </form>
+</md-card>
