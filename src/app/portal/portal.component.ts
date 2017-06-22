@@ -2,7 +2,6 @@ import { InformationService } from './services/information.service';
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
@@ -31,23 +30,25 @@ export class PortalComponent implements OnInit {
   time: Time[] = [];
   games: Game[] = [];
   error: any;
+  gameResults: boolean;
+  counter: number = 0;
+  result: string = '';
 
-  constructor(
-    private fb: FormBuilder,
-    private infoService: InformationService,
-    private gameService: GameService
-  ) {
-    this.getTimes();
-    this.getGames();
+  constructor(private fb: FormBuilder,
+              private infoService: InformationService,
+              private gameService: GameService) {
   }
 
 
   ngOnInit() {
     this.form = this.fb.group({
-      colleague: ['', [Validators.required]]
+      colleague: ['', [Validators.required]],
+      game: ['', [Validators.required]],
+      time: ['', [Validators.required]]
     });
 
     this.getAllUsers();
+    this.getGames();
   }
 
   nameValueChanges() {
@@ -58,16 +59,16 @@ export class PortalComponent implements OnInit {
 
   getAllUsers() {
     this.infoService
-      .getAllUsers()
-      .subscribe(res => {
-        res.map(person => this.names.push(person.name));
-        this.nameValueChanges();
-      });
+        .getAllUsers()
+        .subscribe(res => {
+          res.map(person => this.names.push(person.name));
+          this.nameValueChanges();
+        });
   }
 
   filterNames(val: string) {
     return val ? this.names.filter(s => s.toLowerCase().indexOf(val.toLowerCase()) === 0)
-               : this.names;
+        : this.names;
   }
 
   openDialog() {
@@ -80,45 +81,45 @@ export class PortalComponent implements OnInit {
 
   openTimer() {
     this.showTimer = true;
-    if (this.showTimer) { 
+    if (this.showTimer) {
       this.timerId = setInterval(() => {
         this.timer++;
-        console.log(this.timer);
       }, 1000);
     };
   }
 
   closeTimer() {
     this.timer = 0;
+    this.counter = 0;
+    this.result = '';
     clearInterval(this.timerId);
     this.showTimer = false;
   }
 
-  onSubmit() {
-    this.openTimer();
+  submit() {
+    if (++this.counter < 2) {
+      this.openTimer();
+    }
+    else {
+      this.showTimer = true;
+    }
   }
 
-  getTimes() {
-    this.gameService.getTimes().subscribe(
-        games => {
-          this.time = games;
-          console.log(this.time);
-        },
-        error => {
-          this.error = error
-        }
+  finishGame() {
+    this.gameResults = true;
+  }
+
+  getTimes(id) {
+    this.gameService.getTimes(id).subscribe(
+        games => this.time = games,
+        error => this.error = error
     );
   }
 
   getGames() {
     this.gameService.getGames().subscribe(
-        games => {
-          this.games = games;
-          console.log(this.games);
-        },
-        error => {
-          this.error = error
-        }
+        games => this.games = games,
+        error => this.error = error
     );
   }
 

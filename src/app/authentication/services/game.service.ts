@@ -14,10 +14,10 @@ export class GameService {
         .map((res: Response) => res.json());
   }
 
-  getTimes() {
+  getTimes(id) {
     const headers = new Headers();
     return this.http
-        .get(`${environment.apiUrl}/times`, { headers })
+        .get(`${environment.apiUrl}/times/${id}`, { headers })
         .map((res: Response) => res.json());
   }
 }
