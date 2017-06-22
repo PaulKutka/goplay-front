@@ -34,9 +34,6 @@ th, td {
 div label input {
     margin-right:100px;
 }
-body {
-    font-family:sans-serif;
-}
 
 .ck-button {
     background-color:#EFEFEF;
@@ -68,4 +65,9 @@ body {
 .ck-button input:checked + span {
     background-color: #71be83;
     color:#fff;
+}
+
+.center-block {
+  text-align: center;
+  margin: 20px;
 }
