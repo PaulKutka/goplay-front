@@ -41,19 +41,24 @@
                                     </md-autocomplete>
                                 </div>
                             </div>
-                            <div style="text-align:center">
-                                <button md-raised-button color="accent" (click)="submit()">Play Game!</button>
-                            </div>
                         </div>
+                        <div class="row padding">
                         <div class="col-sm-3 title">Opposite colleagues</div>
-                        <div layout="column" layout-align="center center">
+                        <div class="col-sm-9" layout="column" layout-align="center center">
                             <md-input-container>
-                                <input mdInput placeholder="Colleague1" ng-model="user" [mdAutocomplete]="auto" formControlName="colleague">
+                                <input mdInput placeholder="First opponent" ng-model="user" [mdAutocomplete]="auto"
+                                       formControlName="opponent1">
                             </md-input-container>
                             <md-input-container>
-                                <input mdInput placeholder="Colleague2" ng-model="user" [mdAutocomplete]="auto" formControlName="colleague">
+                                <input mdInput placeholder="Second opponent" ng-model="user" [mdAutocomplete]="auto"
+                                       formControlName="opponent2">
                             </md-input-container>
                         </div>
+                        </div>
+                        <div style="text-align:center">
+                            <button md-raised-button color="accent" (click)="submit()">Play Game!</button>
+                        </div>
+
                     </md-card>
                 </div>
             </div>

@@ -44,7 +44,9 @@ export class PortalComponent implements OnInit {
     this.form = this.fb.group({
       colleague: ['', [Validators.required]],
       game: ['', [Validators.required]],
-      time: ['', [Validators.required]]
+      time: ['', [Validators.required]],
+      opponent1: ['', [Validators.required]],
+      opponent2: ['', [Validators.required]]
     });
 
     this.getAllUsers();
@@ -103,6 +105,7 @@ export class PortalComponent implements OnInit {
     else {
       this.showTimer = true;
     }
+    console.log(this.form.value);
   }
 
   finishGame() {
