@@ -99,13 +99,13 @@
         <h1 *ngIf="!gameResults" style="font-size: 40px">{{ timer }} seconds</h1>
         <h1 *ngIf="gameResults" style="font-size: 40px">{{ currentTime }} seconds</h1>
         <div *ngIf="gameResults">
-            <input type="radio" name="radio" value="win" (click)="result = 'Win'"><span>Win</span>
-            <input type="radio" name="radio" value="lose" (click)="result = 'Lose'"><span>Lose</span>
+            <input type="radio" name="radio" value="win" (click)="win()"><span>Win</span>
+            <input type="radio" name="radio" value="lose" (click)="lose()"><span>Lose</span>
         </div>
         <button *ngIf="!gameResults" style="margin: 5px" md-raised-button color="primary" (click)="finishGame()">
             Finish
         </button>
-        <button *ngIf="gameResults" style="margin: 5px" md-raised-button color="primary" [disabled]="!result" (click)="show()">Submit
+        <button *ngIf="gameResults" style="margin: 5px" md-raised-button color="primary" [disabled]="!result1 && !result2" (click)="end();closeTimer()">Submit
         </button>
         <button style="margin: 5px" md-raised-button color="accent" (click)="closeTimer()">Cancel</button>
     </div>

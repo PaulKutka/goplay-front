@@ -25,6 +25,7 @@ export class PortalComponent implements OnInit {
 
   showDialog: boolean;
   showTimer: boolean;
+  startResponse: any;
 
   filteredNames: any;
   time: Time[] = [];
@@ -32,9 +33,20 @@ export class PortalComponent implements OnInit {
   error: any;
   gameResults: boolean;
   counter: number = 0;
-  result: string = '';
+  result1: number;
+  result2: number;
   currentTime : number;
   selectedTime : Time;
+
+  win(){
+    this.result1 = 1;
+    this.result2 = 0;
+  }
+
+  lose(){
+    this.result1 = 0;
+    this.result2 = 1;
+  }
 
   constructor(private fb: FormBuilder,
               private infoService: InformationService,
@@ -95,7 +107,6 @@ export class PortalComponent implements OnInit {
   closeTimer() {
     this.timer = 0;
     this.counter = 0;
-    this.result = '';
     clearInterval(this.timerId);
     this.showTimer = false;
   }
@@ -113,7 +124,10 @@ export class PortalComponent implements OnInit {
           this.form.get('opponent1').value,
           this.form.get('opponent2').value
       ).subscribe(
-          response=> console.log(response),
+          response=> {
+            console.log(response);
+            this.startResponse = response;
+          },
           error=> console.log(error)
       )
     }
@@ -130,6 +144,16 @@ export class PortalComponent implements OnInit {
   finishGame() {
     this.gameResults = true;
     this.currentTime = this.timer;
+    // this.gameService.finishMatch(this.startResponse.team1Id){
+    //
+    // }
+  }
+
+  end(){
+    this.gameService.finishMatch(this.startResponse.id,this.startResponse.team1Id, this.startResponse.team2Id, this.result1, this.result2 ).subscribe(
+        res=> console.log(res),
+        error => console.log(error)
+    )
   }
 
   getTimes(id) {

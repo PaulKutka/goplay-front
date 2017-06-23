@@ -38,4 +38,18 @@ export class GameService {
         }), { headers })
         .map((res: Response) => res.json());
   }
+
+  finishMatch(id, team1Id, team2Id, team1Result, team2Result){
+    const headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    return this.http
+        .post(`${environment.apiUrl}/match/finish`,JSON.stringify({
+          id: id,
+          team1Id: team1Id,
+          team2Id: team2Id,
+          team1Result: team1Result,
+          team2Result: team2Result
+        }), { headers })
+        .map((res: Response) => res.json());
+  }
 }
