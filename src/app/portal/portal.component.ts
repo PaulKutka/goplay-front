@@ -33,7 +33,12 @@ export class PortalComponent implements OnInit {
   gameResults: boolean;
   counter: number = 0;
   result: string = '';
-  currentTime : number;
+  currentTime: number;
+
+
+  waitingPlyaerList = [];
+  waitingPlayerResponse = false;
+
 
   constructor(private fb: FormBuilder,
               private infoService: InformationService,
@@ -100,6 +105,7 @@ export class PortalComponent implements OnInit {
   }
 
   submit() {
+    this.waitingPlayerResponse = true;
     if (++this.counter < 2) {
       this.openTimer();
     }
