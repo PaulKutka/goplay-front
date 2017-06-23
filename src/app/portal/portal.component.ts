@@ -104,14 +104,14 @@ export class PortalComponent implements OnInit {
     if (++this.counter < 2) {
       this.openTimer();
       console.log(this.selectedTime.id,
-          +this.form.get('colleague').value,
-          +this.form.get('opponent1').value,
-          +this.form.get('opponent2').value)
+          this.form.get('colleague').value,
+          this.form.get('opponent1').value,
+          this.form.get('opponent2').value)
       this.gameService.startMatch(
           this.selectedTime.id,
-          +this.form.get('colleague').value,
-          +this.form.get('opponent1').value,
-          +this.form.get('opponent2').value
+          this.form.get('colleague').value,
+          this.form.get('opponent1').value,
+          this.form.get('opponent2').value
       ).subscribe(
           response=> console.log(response),
           error=> console.log(error)

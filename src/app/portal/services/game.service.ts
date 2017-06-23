@@ -33,9 +33,9 @@ export class GameService {
     return this.http
         .post(`${environment.apiUrl}/match/start`,JSON.stringify({
           timeSlotId: timeSlotId,
-          player12Id: player12Id,
-          player21Id: player21Id,
-          player22Id: player22Id
+          player12Name: player12Id,
+          player21Name: player21Id,
+          player22Name: player22Id
         }), { headers })
         .map((res: Response) => res.json());
   }
