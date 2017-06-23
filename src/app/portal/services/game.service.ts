@@ -8,8 +8,7 @@ export class GameService {
   constructor(private http: Http) {}
 
   createAuthorizationHeader(headers: Headers) {
-    headers.append('Authorization', 'Bearer ' +
-        localStorage.getItem('access_token'));
+    headers.append('Authorization',localStorage.getItem('token'));
     headers.append('Content-Type', 'application/json');
   }
 

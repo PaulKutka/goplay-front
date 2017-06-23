@@ -12,8 +12,13 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 
+class Token{
+  token: string;
+}
+
 @Injectable()
 export class AuthService {
+  private token : Token;
 
   private headers = new Headers({ 'Content-Type': 'application/json' });
   private options = new RequestOptions({ headers: this.headers });
@@ -21,12 +26,15 @@ export class AuthService {
     private http: Http
   ) { }
 
+
   login(user) {
     return this.http.post(
       `${environment.apiUrl}/login`,
       user, this.options)
       .map(res => {
-        localStorage.setItem('token', res.toString());
+        this.token = res.json();
+        console.log(this.token.token);
+        localStorage.setItem("token", this.token.token);
       })
       .catch(this.handleError);
   }
