@@ -8,6 +8,8 @@ import { NavbarModule } from '../shared/navbar/navbar.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { LeadersService } from "./services/leaders.service"
+
 import {
   MdGridListModule,
   MdButtonModule,
@@ -17,6 +19,8 @@ import {
 } from '@angular/material';
 import { DialogComponent } from '../shared/dialog/dialog.component';
 import { GameService } from './services/game.service';
+
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 @NgModule({
   imports: [
@@ -36,10 +40,12 @@ import { GameService } from './services/game.service';
   exports: [],
   declarations: [
     PortalComponent,
-    DialogComponent
+    DialogComponent,
+    LeaderboardComponent
   ],
   providers: [
-      GameService
+      GameService,
+      LeadersService
   ],
 })
 export class PortalModule {

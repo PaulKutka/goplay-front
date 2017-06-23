@@ -9,5 +9,5 @@ export const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
   { path: 'main', component: PortalComponent, canActivate: [AuthGuard] },
   { path: '404', component: NotFoundComponent},
-  { path: '**', redirectTo: '/404' }
+  { path: '**', redirectTo: '/404' },
 ];
