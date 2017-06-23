@@ -35,11 +35,4 @@ export class LoginComponent implements OnInit {
         error => console.log(error)
       );
   }
-
-  // onSubmit() {
-  //   this.authService
-  //     .login(this.form.value)
-  //     .subscribe(res => this.router.navigate(['main']));
-  // }
-
 }

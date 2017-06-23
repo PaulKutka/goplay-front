@@ -31,10 +31,6 @@ export class AuthService {
       .catch(this.handleError);
   }
 
-  loggedIn(): boolean {
-    return tokenNotExpired('id_token');
-  }
-
   logout(): void {
     localStorage.clear();
   }

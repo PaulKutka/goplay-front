@@ -8,10 +8,10 @@ export class AuthGuard implements CanActivate {
   }
 
   canActivate() {
-    if (this.authService.loggedIn()) {
+    if (localStorage.getItem('token')) {
       return true;
     } else {
-      this.router.navigate(['signIn']);
+      this.router.navigate(['login']);
       return false;
     }
   }
