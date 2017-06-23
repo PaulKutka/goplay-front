@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://goplay-back.herokuapp.com'
+  apiUrl: 'http://localhost:8080'
 };

@@ -26,7 +26,7 @@ import { MaterialModule } from '@angular/material';
     MaterialModule,
     AuthenticationModule,
     PortalModule,
-    NavbarModule
+    NavbarModule,
   ],
   providers: [
     AuthGuard
