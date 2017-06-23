@@ -6,7 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
 
-import { GameService } from '../authentication/services/game.service';
+import { GameService } from './services/game.service';
 import { Time } from '../shared/models/time';
 import { Game } from '../shared/models/games';
 
@@ -34,6 +34,7 @@ export class PortalComponent implements OnInit {
   counter: number = 0;
   result: string = '';
   currentTime : number;
+  selectedTime : Time;
 
   constructor(private fb: FormBuilder,
               private infoService: InformationService,
@@ -102,11 +103,28 @@ export class PortalComponent implements OnInit {
   submit() {
     if (++this.counter < 2) {
       this.openTimer();
+      console.log(this.selectedTime.id,
+          +this.form.get('colleague').value,
+          +this.form.get('opponent1').value,
+          +this.form.get('opponent2').value)
+      this.gameService.startMatch(
+          this.selectedTime.id,
+          +this.form.get('colleague').value,
+          +this.form.get('opponent1').value,
+          +this.form.get('opponent2').value
+      ).subscribe(
+          response=> console.log(response),
+          error=> console.log(error)
+      )
     }
     else {
       this.showTimer = true;
     }
     console.log(this.form.value)
+  }
+
+  selectTime(gameTime){
+    this.selectedTime = gameTime;
   }
 
   finishGame() {

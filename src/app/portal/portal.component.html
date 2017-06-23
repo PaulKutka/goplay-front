@@ -79,7 +79,7 @@
                     <div *ngFor="let gameTime of time" class="col-xs-4 ck-button">
                         <label style="width: 100%">
                             <input formControlName="time" type="radio"
-                                   [value]="gameTime.time"><span>{{gameTime.time}}</span>
+                                   [value]="gameTime.time" (click)="selectTime(gameTime)"><span>{{gameTime.time}}</span>
                         </label>
                     </div>
                 </div>

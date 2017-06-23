@@ -16,7 +16,7 @@ import {
   MdAutocompleteModule, MdCheckboxModule, MdRadioModule
 } from '@angular/material';
 import { DialogComponent } from '../shared/dialog/dialog.component';
-import { GameService } from '../authentication/services/game.service';
+import { GameService } from './services/game.service';
 
 @NgModule({
   imports: [
