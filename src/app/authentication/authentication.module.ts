@@ -9,7 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AuthenticationService } from './services/authentication.service';
 import { InformationService } from '../portal/services/information.service';
-import { AuthenticationComponent } from './authentication.component'; 
+import { AuthService } from '../shared/authorization/auth.service';
+import { AuthenticationComponent } from './authentication.component';
 
 import { appRoutes } from './authentication.routing';
 
@@ -33,6 +34,7 @@ import { appRoutes } from './authentication.routing';
   ],
   providers: [
     AuthenticationService,
+    AuthService,
     InformationService
   ],
 })
