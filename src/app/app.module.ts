@@ -2,16 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { appRoutes } from './app.routing';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { PortalModule } from './portal/portal.module';
+import { AuthGuard } from './shared/authorization/auth-guard';
 import { NavbarModule } from './shared/navbar/navbar.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 
-import { appRoutes } from './app.routing';
-import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     PortalModule,
     NavbarModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

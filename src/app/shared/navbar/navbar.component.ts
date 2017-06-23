@@ -1,3 +1,5 @@
+import { AuthService } from '../authorization/auth.service';
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -9,13 +11,15 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
   }
 
   logout() {
+    this.authService.logout();
     this.router.navigate(['login']);
   }
 
