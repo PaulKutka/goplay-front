@@ -33,6 +33,7 @@ export class PortalComponent implements OnInit {
   gameResults: boolean;
   counter: number = 0;
   result: string = '';
+  currentTime : number;
 
   constructor(private fb: FormBuilder,
               private infoService: InformationService,
@@ -105,11 +106,12 @@ export class PortalComponent implements OnInit {
     else {
       this.showTimer = true;
     }
-    console.log(this.form.value);
+    console.log(this.form.value)
   }
 
   finishGame() {
     this.gameResults = true;
+    this.currentTime = this.timer;
   }
 
   getTimes(id) {

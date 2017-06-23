@@ -56,7 +56,7 @@
                         </div>
                         </div>
                         <div style="text-align:center">
-                            <button md-raised-button color="accent" (click)="submit()">Play Game!</button>
+                            <button md-raised-button color="accent" [disabled]="form.invalid" (click)="submit()">Play Game!</button>
                         </div>
 
                     </md-card>
@@ -85,7 +85,7 @@
                 </div>
             </div>
             <div class="center-block">
-                <button md-raised-button color="primary" (click)="closeDialog()">Apply</button>
+                <button md-raised-button color="primary" [disabled]="form.get('time').invalid" (click)="closeDialog()">Apply</button>
                 <button md-raised-button color="accent" (click)="closeDialog()">Close</button>
             </div>
         </div>
@@ -96,7 +96,8 @@
 <app-dialog [(visible)]="showTimer">
     <div class="timer-container">
         <h2 style="font-size: 22px">Timer</h2>
-        <h1 style="font-size: 40px">{{ timer }} seconds</h1>
+        <h1 *ngIf="!gameResults" style="font-size: 40px">{{ timer }} seconds</h1>
+        <h1 *ngIf="gameResults" style="font-size: 40px">{{ currentTime }} seconds</h1>
         <div *ngIf="gameResults">
             <input type="radio" name="radio" value="win" (click)="result = 'Win'"><span>Win</span>
             <input type="radio" name="radio" value="lose" (click)="result = 'Lose'"><span>Lose</span>
@@ -104,7 +105,7 @@
         <button *ngIf="!gameResults" style="margin: 5px" md-raised-button color="primary" (click)="finishGame()">
             Finish
         </button>
-        <button *ngIf="gameResults" style="margin: 5px" md-raised-button color="primary" (click)="show()">Submit
+        <button *ngIf="gameResults" style="margin: 5px" md-raised-button color="primary" [disabled]="!result" (click)="show()">Submit
         </button>
         <button style="margin: 5px" md-raised-button color="accent" (click)="closeTimer()">Cancel</button>
     </div>
