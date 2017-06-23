@@ -1,4 +1,6 @@
-import { AuthenticationService } from '../services/authentication.service';
+// import { AuthenticationService } from '../services/authentication.service';
+
+import { AuthService } from '../../shared/authorization/auth.service';
 
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -16,7 +18,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private authService: AuthenticationService
+    private authService: AuthService,
   ) { }
 
   ngOnInit() {
@@ -26,10 +28,18 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    this.authService
-      .login(this.form.value)
-      .subscribe(res => this.router.navigate(['main']));
+  onSubmit(): void {
+    this.authService.login(this.form.value)
+      .subscribe(
+        response => this.router.navigate(['main']),
+        error => console.log(error)
+      );
   }
+
+  // onSubmit() {
+  //   this.authService
+  //     .login(this.form.value)
+  //     .subscribe(res => this.router.navigate(['main']));
+  // }
 
 }
